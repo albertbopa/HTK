@@ -15,7 +15,7 @@ Comandes utilitzades:
 
 HCompV 
 
-    HCompV -C config -f 0.01 -m -S train_list.txt -M hmm0 Hmm_prototype
+    HCompV -C config -f 0.01 -m -S train_list.txt -M hmm0 Hmm_proto
 
 Comandes en procés:
 
