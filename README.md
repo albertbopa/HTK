@@ -6,6 +6,7 @@ http://www.speech.kth.se/~matsb/speech_rec_course_2003/htk_tutorial.pdf
 http://www1.icsi.berkeley.edu/Speech/docs/HTKBook/node22.html
 http://www.ee.columbia.edu/~dpwe/LabROSA/doc/HTKBook21/node90.html
 http://www.voxforge.org/home/dev/acousticmodels/linux/create/htkjulius/tutorial/monophones/step-6
+http://www.labunix.uqam.ca/~boukadoum_m/DIC9315/Notes/Markov/HTK_basic_tutorial.pdf
 
 Llistes d'errors HTK:
 
