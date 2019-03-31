@@ -1,5 +1,0 @@
-mfcc_e_d_a\songs_train\Acoustic_Fake\Acoustic_Alchemy-Angel_Of_The_South-M1.mfc
-mfcc_e_d_a\songs_train\Acoustic_Fake\Acoustic_Alchemy-Ballad_For_Kay-M1.mfc
-mfcc_e_d_a\songs_train\Acoustic_Fake\Acoustic_Alchemy-Ballad_For_Kay-M2.mfc
-mfcc_e_d_a\songs_train\Acoustic_Fake\Acoustic_Alchemy-Columbia-M1.mfc
-mfcc_e_d_a\songs_train\Acoustic_Fake\Acoustic_Alchemy-Wind_Of_Change-P1.mfc
