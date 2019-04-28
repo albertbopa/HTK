@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# --- Separa les prediccions en fitxers .lab per cada cançó ---
+
+tabslist=`cat aligned.mlf`
+newsong=0
+songname=""
+for line in $tabslist;
+do
+	if [ $newsong -eq 0 ]
+	then
+		first=${line:0:1}
+		if [ $first = "\"" ]
+		then
+			newsong=1
+			songname=`echo $line | sed 's/\*//' | sed 's/\"//g' | sed 's/\///'`
+			touch encert/$songname
+		fi
+	else
+		if [ $line = "." ]
+		then
+			newsong=0
+		else
+			echo $line >> encert/$songname
+		fi
+	fi
+done

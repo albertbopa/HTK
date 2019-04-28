@@ -1,0 +1,30 @@
+#!/bin/bash
+
+files=`ls encert/`
+for line in $files;
+do
+	file1="encert/"$line
+	file2="mfcc_e_d_a/songs_train/Acoustic_Fake/"$line
+	if [ ! -f $file2 ]
+	then
+		file2="mfcc_e_d_a/songs_train/Electric_Fake/"$line
+	fi
+	
+	total=0
+	encert=0
+	: 'echo "Init " $line
+	while read compareFile1 <$file1 && read compareFile2 <$file2;
+	do     
+		if [ $compareFile1 = $compareFile2 ]
+		then
+			total=$((total+1))
+			encert=$((encert+1))
+		else
+			total=$((total+1))
+		fi	
+	done
+	percent=$encert*100/$total
+	echo "Song -> " $line " --- " $percent "% ---"'
+	echo "Song: " $line
+	sdiff -B -b -s $file1 $file2 | wc
+done
