@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# --- Crea un nou fitxer .mlf amb els tabs filtrats ---
+
+filelines=`cat aligned.mlf`
+insong=0
+pre="\"*/"
+post=".lab\""
+touch final_labs/aux
+IFS=$'\n'
+for line in $filelines
+do
+	if [[ $insong -eq 0 ]]
+	then	
+		c=${line:0:1}
+		if [[ $c == "\"" ]]
+		then
+			aux=${line#"$pre"}
+			name=${aux%"$post"}
+			insong=1
+			first=1
+		fi
+	else	
+		c=${line:0:1}
+		if [[ $c == "." ]]
+		then
+			echo $line >> final_labs/aux
+			touch final_labs/$name".mlf"
+			cat final_labs/aux > final_labs/$name".mlf"
+			insong=0
+		else
+			if [[ $first -eq 1 ]]
+			then
+				echo "#!MLF!#" > final_labs/aux
+				echo "\""$name".lab\"" >> final_labs/aux
+				first=0
+			fi
+			echo $line | awk '{$1=$1*100; $2=$2*100; print }' >> final_labs/aux
+		fi
+	fi
+done
+rm -rf final_labs/aux

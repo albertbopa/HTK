@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# --- Crea un nou hmmdef amb tots els tabs que han quedat un cop fet el filtrat ---
+
+finalfile="counts/filtered_tabs.txt"
+hmmdefs="hmm0/hmmdefs"
+tabslist=`cat $finalfile`
+hmmproto="hmm0/Hmm_proto"
+cat $hmmproto | awk "NR >= 1 && NR <= 3 { print }" > $hmmdefs
+for line in $tabslist;
+do
+        newline=`echo $line | tr -d "\n\r"`
+        echo ~h \"$newline\" >> $hmmdefs
+        cat $hmmproto | awk "NR >= 5 && NR <= 31 { print }" >> $hmmdefs
+done
